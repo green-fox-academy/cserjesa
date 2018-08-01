@@ -6,4 +6,4 @@
 
 [Git Lession Repository](https://github.com/cserjesa/git-lesson-repository)
 
-##[Badboi Alopex syllabus](https://github.com/green-fox-academy/badboi-syllabus)
+## [Badboi Alopex syllabus](https://github.com/green-fox-academy/badboi-syllabus)

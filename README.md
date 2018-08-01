@@ -8,5 +8,5 @@
 
 * [Git Lession Repository](https://github.com/cserjesa/git-lesson-repository)
 
- [My github.io page](https://cserjesa.github.io)
+# [My github.io page](https://cserjesa.github.io)
 

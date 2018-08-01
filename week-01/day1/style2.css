@@ -1,0 +1,24 @@
+@import url('https://fonts.google.com/?selection.family=Merriweather')
+body {
+    font-family: medium-content-serif-font;
+    padding: 10%;
+    margin: 0;
+    font-family: consolas, courier;
+    font-size: 21px;
+    margin-top: 0;
+    display:inline-block;
+    }
+
+    .blackbox {
+        height: auto;
+        width: 100%;
+        align-self: flex-end;
+        background-color: #333333;
+        text-align: right;
+        margin-top: 0;  
+    }
+
+    a:link, :visited, h2 {
+        color: #ff0099;
+    }
+ 

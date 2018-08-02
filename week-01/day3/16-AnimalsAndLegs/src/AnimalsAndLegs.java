@@ -7,13 +7,14 @@ public class AnimalsAndLegs {
         // The second represents the number of pigs owned by the farmer
         // It should print how many legs all the animals have
 
-        System.out.println("Hello farmer!" + "\n" + "How man chickens have you got? (I mean animals.)");
+        System.out.println("Hello farmer!\nHow man chickens have you got? (I mean animals.)");
         Scanner scanner = new Scanner(System.in);
         int userInput1 = scanner.nextInt();
         System.out.println("How many pigs?");
         int userInput2 = scanner.nextInt();
 
         System.out.println("Dear Farmer \nYour animals have " +
-                ((2 * userInput1) + (4 * userInput2)) + " legs.\nKeep in mind!");
+            ((2 * userInput1) + (4 * userInput2)) +
+            " legs. (If they are intact.)\nKeep in mind!");
     }
 }

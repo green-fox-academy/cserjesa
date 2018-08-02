@@ -18,6 +18,4 @@ public class OddEven {
             System.out.println(u1 + " is even.");
         }
     }
-
-
 }

@@ -11,12 +11,12 @@ public class OddEven {
         System.out.println("Give me the number:");
         int u1 = scanner.nextInt();
 
-    if((u1 % 2) != 0) {
-        System.out.println(u1 + " is odd.");
-    }
-    else {
-        System.out.println(u1 + " is even.");
-    }
+        if((u1 % 2) != 0) {
+            System.out.println(u1 + " is odd.");
+        }
+        else {
+            System.out.println(u1 + " is even.");
+        }
     }
 
 

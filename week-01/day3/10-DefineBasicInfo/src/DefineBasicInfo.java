@@ -19,6 +19,6 @@ public class DefineBasicInfo {
         }
         else {
             System.out.println("unmarried");
-            }
+        }
     }
 }

@@ -26,5 +26,5 @@ public class OneTwoALot {
         else {
             System.out.println("A lot");
         }
-        }
+    }
 }

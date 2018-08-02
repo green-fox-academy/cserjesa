@@ -81,9 +81,9 @@ public class VariableMutation {
 
         System.out.println(j % 3 == 0);
         System.out.println(j % 5 == 0);
+
         // possible answer
         System.out.println(j % 3 == 0 || j % 5 == 0);
-
 
 
         String k = "Apple";

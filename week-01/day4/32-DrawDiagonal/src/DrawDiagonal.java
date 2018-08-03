@@ -12,7 +12,7 @@
 
 import java.util.Scanner;
 
-public class DrawDiagonal {
+    public class DrawDiagonal {
     public static void main(String[] args) {
         System.out.println("I'll draw you a square! What size you want? Type a number please.");
         Scanner scanner = new Scanner(System.in);

@@ -25,7 +25,7 @@ public class PartyIndicator {
         System.out.println("Girls:");
         int u1 = scanner.nextInt();
 
-        System.out.println("Boys");
+        System.out.println("Boys:");
         int u2 = scanner.nextInt();
 
         if ((u1 == u2) && u1 + u2 > 20) {

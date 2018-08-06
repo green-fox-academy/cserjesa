@@ -12,7 +12,6 @@ public class Unique {
     }
 
     public static int[] unique(int[] args) {
-        int i = 0;
         Arrays.sort(args);
         int[] noDuplicates = IntStream.of(args).distinct().toArray();
 //        System.out.println(Arrays.toString(noDuplicates));

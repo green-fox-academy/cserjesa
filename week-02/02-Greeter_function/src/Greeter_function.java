@@ -14,7 +14,6 @@ public class Greeter_function {
     }
 
     public static String greet(String a) {
-        String greeting = "Greetings dear, " + a;
-        return greeting;
+        return "Greetings dear, " + a;
     }
 }

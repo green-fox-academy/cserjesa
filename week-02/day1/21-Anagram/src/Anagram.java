@@ -8,21 +8,35 @@ public class Anagram {
 
     public static void main(String[] args) {
 
-        System.out.println("First word please.");
+        System.out.println("First word please:");
         Scanner scanner = new Scanner(System.in);
         String u1 = scanner.nextLine();
-        System.out.println("Second word please.");
-//            Scanner scanner = new Scanner(System.in);
+        System.out.println("Second word please:");
         String u2 = scanner.nextLine();
 
         anagram(u1, u2);
     }
 
-    public static String[] anagram(String a, String b) {
-        int i = 0;
-        Arrays.sort(args);
-        int[] noDuplicates = IntStream.of(args).distinct().toArray();
-        return noDuplicates;
+    public static String anagram(String a, String b) {
+        //String first[] = a.split("(?!^)");
+        //String second[] = b.split("(?!^)");
+        //Arrays.sort(first);
+        //Arrays.sort(second);
+// Sorter method instead
+
+        if (Arrays.equals(sorter(a), sorter(b))) {
+            System.out.println("Anagrams");
+            boolean r = true;
+        } else {
+            System.out.println("Not anagrams");
+            boolean r = false;
+        }
+        return "r";
     }
-}
+
+    public static String[] sorter(String d) {
+        String raw[] = d.split("(?!^)");
+        Arrays.sort(raw);
+        return raw;
+    }
 }

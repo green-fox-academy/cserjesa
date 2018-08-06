@@ -8,7 +8,6 @@
 //
 // - Print this two dimensional array to the output
 
-
 import java.util.Arrays;
 
 public class Matrix {
@@ -17,11 +16,15 @@ public class Matrix {
         int[][] matrix = new int[4][4];
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
-                matrix[i][j] = 1;
+                if (i == j) {
+                    matrix[i][j] = 1;
+                } else {
+                    matrix[i][j] = 0;
+                }
+                System.out.print(matrix[i][j] + " ");
             }
-            System.out.println(Arrays.toString(matrix));
+            System.out.println();
         }
-        System.out.println();
     }
 }
 

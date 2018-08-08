@@ -22,10 +22,10 @@ public class ElementFinder {
         for (int i = 0; i < kapom.size(); i++) {
             if (kapom.get(i) == 7) {
                 System.out.println("Hoorray");
-            } else {
-                System.out.println("Noooooo");
+                return kapom;
             }
         }
+        System.out.println("Noooooo");
         return kapom;
     }
 }

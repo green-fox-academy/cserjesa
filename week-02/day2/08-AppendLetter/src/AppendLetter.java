@@ -9,11 +9,11 @@ public class AppendLetter {
         System.out.println(appendA(far));
     }
 
-    public static List<String> appendA(List<String> kapom) {
-        for (int i = 0; i < kapom.size(); i++) {
-            kapom.set(i, kapom.get(i) + "a");
+    public static List<String> appendA(List<String> j) {
+        for (int i = 0; i < j.size(); i++) {
+            j.set(i, j.get(i) + "a");
         }
-        return kapom;
+        return j;
     }
 // The output should be: "boa", "anaconda", "koala", "panda", "zebra"
 

@@ -10,8 +10,8 @@ public class ElementFinder {
         // Do this again with a different solution using different list methods!
     }
 
-    public static ArrayList<Integer> containsSeven(ArrayList<Integer> kapom) {
-//        if (kapom.contains(7)) {
+    public static ArrayList<Integer> containsSeven(ArrayList<Integer> k) {
+//        if (k.contains(7)) {
 //            System.out.println("Hoorray");
 //        } else {
 //            System.out.println("Noooooo");
@@ -19,13 +19,13 @@ public class ElementFinder {
 
 //Another solution
 
-        for (int i = 0; i < kapom.size(); i++) {
-            if (kapom.get(i) == 7) {
+        for (int i = 0; i < k.size(); i++) {
+            if (k.get(i) == 7) {
                 System.out.println("Hoorray");
-                return kapom;
+                return k;
             }
         }
         System.out.println("Noooooo");
-        return kapom;
+        return k;
     }
 }

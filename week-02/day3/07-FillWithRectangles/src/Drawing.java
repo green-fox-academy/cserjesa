@@ -11,8 +11,8 @@ public class Drawing {
         // avoid code duplication.
         Color[] colors = {Color.green, Color.blue, Color.red, Color.cyan};
         int rectangles[] = {50, 100, 150, 200};
-        for (int sor = 0; sor < 4; sor++) {
-            toCenter(graphics, rectangles[sor], colors[sor]);
+        for (int k = 0; k < 4; k++) {
+            toCenter(graphics, rectangles[k], colors[k]);
         }
     }
 

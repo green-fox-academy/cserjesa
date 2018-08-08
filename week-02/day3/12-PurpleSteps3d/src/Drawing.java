@@ -12,8 +12,8 @@ public class Drawing {
         // [https://github.com/green-fox-academy/teaching-materials/blob/master/workshop/drawing/purple-steps-3d/r4.png]
         int x1 = 10;
         int y1 = 10;
-        for (int sor = 1; sor < 7; sor++) {
-            y1 = sor * 10;
+        for (int k = 1; k < 7; k++) {
+            y1 = k * 10;
             toCenter(graphics, x1, y1);
             x1 = x1 + y1;
         }

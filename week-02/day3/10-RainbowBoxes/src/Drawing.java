@@ -11,7 +11,7 @@ public class Drawing {
         // and draws a square of that size and color to the center of the canvas.
         // Create a loop that fills the canvas with rainbow colored squares.
 
-        for (int c = 255; c >0; c -= 15) {
+        for (int c = 255; c >0; c -= 12) {
             Color myColor = new Color(c, 255-c, c/2);
             toCenter(graphics, c, myColor);
         }

@@ -17,9 +17,9 @@ public class Candyshop {
         // Expected output: "Cupcake", "Croissant", "Brownie", "Ice cream"
     }
 
-    public static ArrayList<Object> sweets(ArrayList<Object> kapom) {
-        kapom.set(kapom.indexOf(2), "Croissant");
-        kapom.set(kapom.indexOf(false), "Ice cream");
-        return kapom;
+    public static ArrayList<Object> sweets(ArrayList<Object> i) {
+        i.set(i.indexOf(2), "Croissant");
+        i.set(i.indexOf(false), "Ice cream");
+        return i;
     }
 }

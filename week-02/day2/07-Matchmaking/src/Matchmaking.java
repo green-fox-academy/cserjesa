@@ -11,18 +11,18 @@ public class Matchmaking {
         System.out.println(makingMatches(girls, boys));
     }
 
-    public static ArrayList<String> makingMatches(ArrayList<String> lanyok, ArrayList<String> fiuk) {
-        int tobben = 0;
-        ArrayList<String> parok = new ArrayList<String>();
-        if (lanyok.size() >= fiuk.size()) {
-            tobben = lanyok.size();
+    public static ArrayList<String> makingMatches(ArrayList<String> girls, ArrayList<String> boys) {
+        int more = 0;
+        ArrayList<String> match = new ArrayList<String>();
+        if (girls.size() >= boys.size()) {
+            more = girls.size();
         } else {
-            tobben = fiuk.size();
+            more = boys.size();
         }
-        for (int i = 0; i < tobben - 1; i++) {
-            parok.add(lanyok.get(i));
-            parok.add(fiuk.get(i));
+        for (int i = 0; i < more - 1; i++) {
+            match.add(girls.get(i));
+            match.add(boys.get(i));
         }
-        return parok;
+        return match;
     }
 }

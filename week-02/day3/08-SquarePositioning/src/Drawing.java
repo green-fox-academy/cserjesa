@@ -19,8 +19,8 @@ public class Drawing {
 
         int x[] = {50, 110, 170};
         int y[] = {50, 110, 170};
-        for (int sor = 0; sor < 3; sor++) {
-            toCenter(graphics, x[sor], y[sor]);
+        for (int k = 0; k < 3; k++) {
+            toCenter(graphics, x[k], y[k]);
         }
     }
 

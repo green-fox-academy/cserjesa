@@ -1,5 +1,4 @@
 import javax.swing.*;
-
 import java.awt.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
@@ -7,9 +6,24 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 public class Drawing {
     public static void mainDraw(Graphics graphics) {
         // Fill the canvas with a checkerboard pattern.
-
-
-
+        int x = 30;
+        int y = 0;
+        int size = x;
+        graphics.setColor(Color.white);
+        graphics.fillRect(0, 0, 8 * size, 8 * size);
+        graphics.setColor(Color.black);
+        for (int j = 1; j < 9; j++) {
+            for (int i = 1; i < 5; i++) {
+                graphics.fillRect(x, y, size, size);
+                x += 2 * size;
+            }
+            y += size;
+            if (j % 2 == 0) {
+                x = size;
+            } else {
+                x = 0;
+            }
+        }
     }
 
     // Don't touch the code below

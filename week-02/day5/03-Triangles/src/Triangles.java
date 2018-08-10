@@ -1,27 +1,24 @@
 import javax.swing.*;
-
 import java.awt.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class Triangles {
-
     public static void mainDraw(Graphics graphics) {
-        // Reproduce this:
-        // [https://github.com/green-fox-academy/teaching-materials/blob/master/workshop/drawing/purple-steps-3d/r4.png]
-        int x1 = 10;
-        int y1 = 10;
-        for (int k = 1; k < 7; k++) {
-            y1 = k * 10;
-            toCenter(graphics, x1, y1);
-            x1 = x1 + y1;
+
+        int x;
+        graphics.setColor(Color.white);
+        graphics.fillRect(0, 0, 300, 300);
+        graphics.setColor(Color.black);
+        for (x = 0; x < 280; x += 20) {
+            lineDraw(graphics, x, 280, x / 2 + 140, x);
+            lineDraw(graphics, 280 - x, 280, 140 - x / 2, x);
+            lineDraw(graphics, x / 2, 280 - x, 280 - x / 2, 280 - x);
         }
     }
 
-    public static void toCenter(Graphics graphics, int x, int y) {
-        graphics.fillRect(x, x, y, y);
-        graphics.setColor(Color.black);
-        graphics.drawRect(x, x, y, y);
+    public static void lineDraw(Graphics graphics, int x, int y, int x1, int y1) {
+        graphics.drawLine(x, y, x1, y1);
     }
 
     // Don't touch the code below

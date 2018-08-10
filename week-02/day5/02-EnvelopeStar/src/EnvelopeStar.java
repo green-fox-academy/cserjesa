@@ -3,7 +3,7 @@ import java.awt.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class LinePlay {
+public class EnvelopeStar {
     public static void mainDraw(Graphics graphics) {
 
         int x;

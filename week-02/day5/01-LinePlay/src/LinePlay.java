@@ -3,24 +3,29 @@ import java.awt.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class Drawing {
+public class LinePlay {
     public static void mainDraw(Graphics graphics) {
-        // Create a square drawing function that takes 2 parameters:
-        // The square size, and the fill color,
-        // and draws a square of that size and color to the center of the canvas.
-        // Create a loop that fills the canvas with rainbow colored squares.
+        // Create a line drawing function that takes 2 parameters:
+        // The x and y coordinates of the line's starting point
+        // and draws a line from that point to the center of the canvas.
+        // Fill the canvas with lines from the edges, every 20 px, to the center.
 
-        for (int c = 255; c > 0; c -= 1) {
-            Color myColor = new Color(c, c, c);
-            toCenter(graphics, c, myColor);
+        int x;
+        graphics.setColor(new Color(148, 0, 211));
+        for (x = 0; x < 296; x += 20) {
+            toCenter(graphics, x, 0, 300, x);
         }
+
+        graphics.setColor(Color.green);
+        for (x = 0; x < 300; x += 20) {
+            toCenter(graphics, 0, x, x, 295);
+        }
+
     }
 
-    public static void toCenter(Graphics graphics, int x, Color colors) {
-        graphics.setColor(colors);
-        graphics.fillRect(150 - x / 2, 147 - x / 2, x, x);
+    public static void toCenter(Graphics graphics, int x, int y, int x1, int y1) {
+        graphics.drawLine(x, y, x1, y1);
     }
-
 
     // Don't touch the code below
     static int WIDTH = 320;

@@ -7,16 +7,15 @@ public class EnvelopeStar {
     public static void mainDraw(Graphics graphics) {
 
         int x;
-        graphics.setColor(new Color(148, 0, 211));
-        for (x = 0; x < 296; x += 20) {
-            toCenter(graphics, x, 0, 300, x);
-        }
-
+        graphics.setColor(Color.white);
+        graphics.fillRect(0, 0, 300, 295);
         graphics.setColor(Color.green);
-        for (x = 0; x < 300; x += 20) {
-            toCenter(graphics, 0, x, x, 295);
+        for (x = 0; x < 147; x += 10) {
+            toCenter(graphics, 150, x, x + 150, 147);
+            toCenter(graphics, 150, x, 150 - x, 147);
+            toCenter(graphics, 150, 295 - x, x + 150, 147);
+            toCenter(graphics, 150, 295 - x, 150 - x, 147);
         }
-
     }
 
     public static void toCenter(Graphics graphics, int x, int y, int x1, int y1) {

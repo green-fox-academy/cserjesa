@@ -15,22 +15,24 @@ public class LinePlay {
         int greenx1;
         int greeny1;
         int n = 2;
+        int width = 290;
+        int height = 290;
         Color purple = new Color(148, 0, 211);
-        for (int m = 1; m <= n; m++) {
-            for (int x = 0; x < 291 / n; x += 20 / n) {
+        for (int m = 0; m <= n; m++) {
+            for (int x = 0; x < width + 1 / n; x += 20 / n) {
                 graphics.setColor(purple);
 //            toCenter(graphics, x, 0, 300, x);
-                purplex = n*(m-1)+m*x;
-                purpley = (m-1)*(290/n);
-                purplex1 = (290/n)*m;
-                purpley1 = n*(m-1)+m*x;
+                purplex = n * m + m * x;
+                purpley = (m - 1) * (height / n);
+                purplex1 = (width / n) * m + m * x;
+                purpley1 = n * (m) + m * x;
                 toCenter(graphics, purplex, purpley, purplex1, purpley1);
                 graphics.setColor(Color.green);
 //            toCenter(graphics, 0, x, x, 295);
-                greenx = (m-1)*(290/n);
-                greeny = n*(m-1)+m*x;
-                greenx1 = n*(m-1)+m*x;
-                greeny1 = (290/n)*m;
+                greenx = (m - 1) * (width / n);
+                greeny = n * (m) + m * x;
+                greenx1 = n * (m) + m * x;
+                greeny1 = (height / n) * m;
                 toCenter(graphics, greenx, greeny, greenx1, greeny1);
             }
         }

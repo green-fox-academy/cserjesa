@@ -8,8 +8,8 @@ public class AnimalClass {
     }
 
     AnimalClass() {
-        this.hunger = hunger = 50;
-        this.thirst = thirst = 50;
+        this.hunger = 50;
+        this.thirst = 50;
     }
 
     void eat() {

@@ -2,9 +2,9 @@
 
 public class numberAdder {
     static int counter = 88;
-    public static void main(String args[]) {
 
-        int n =1;
+    public static void main(String args[]) {
+        int n = 1;
         couterMethod(n);
     }
 

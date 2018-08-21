@@ -1,6 +1,6 @@
 public class Student extends Person {
-    String previousOrganization; // the name of the student’s previous company / school
-    int skippedDays; // the number of days skipped from the course
+    private String previousOrganization; // the name of the student’s previous company / school
+    private int skippedDays; // the number of days skipped from the course
 
     public Student(String name, int age, String gender, String previousOrganization) {
         super(name, age, gender);

@@ -1,5 +1,5 @@
 public class Mentor extends Person {
-    String level;
+    private String level;
 
     public Mentor(String name, int age, String gender, String level) {
         super(name, age, gender);

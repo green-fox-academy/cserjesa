@@ -1,16 +1,27 @@
-public class plants {
+public abstract class Plants {
     private String color;
-    private double absorbtion;
     private double waterLevel;
 
-    public plants(String color) {
+
+    public Plants(String color) {
         this.color = color;
-        this.absorbtion = absorbtion;
         this.waterLevel = 0;
     }
 
-    void watering(double waterAmount) {
-        this.waterLevel = this.waterLevel + waterAmount * absorbtion;
+    public abstract double getNeedsWater();
+    public abstract double getAbsorbtion();
 
+    public void watering(double waterAmount) {
+        this.waterLevel = this.waterLevel + waterAmount * this.getAbsorbtion();
+    }
+
+    public String getStatus() {
+        String need = "";
+        if (this.waterLevel < this.getNeedsWater()) {
+            need = " needs water";
+        } else {
+            need = " doesn't need water";
+        }
+        return "The " + this.color + " " + this.getClass().getSimpleName() + need;
     }
 }

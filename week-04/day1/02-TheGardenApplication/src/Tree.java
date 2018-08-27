@@ -1,8 +1,8 @@
-public class trees extends plants {
+public class Trees extends Plants {
     static double absorbtion = 0.4;
     static double needsWater = 10;
 
-    public trees(String color) {
+    public Trees(String color) {
         super(color);
     }
 }

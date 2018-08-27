@@ -1,17 +1,18 @@
 public class Tree extends Plants {
-    private static double absorbtion = 0.4;
-    private static double needsWater = 10;
+    private static double absorption = 0.4;
+    private static double sufficientLevel = 10;
 
-    public Tree(String color) {
+    Tree(String color) {
         super(color);
-        this.needsWater = needsWater;
     }
 
-    public double getNeedsWater() {
-        return needsWater;
+    @Override
+    public double sufficientLevel() {
+        return sufficientLevel;
     }
 
-    public double getAbsorbtion() {
-        return absorbtion;
+    @Override
+    public double getAbsorption() {
+        return absorption;
     }
 }

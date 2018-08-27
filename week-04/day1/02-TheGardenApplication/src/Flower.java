@@ -1,17 +1,18 @@
 public class Flower extends Plants {
-    private static double absorbtion = 0.75;
-    private static double needsWater = 5;
+    private static double absorption = 0.75;
+    private static double sufficientLevel = 5;
 
-    public Flower(String color) {
+    Flower(String color) {
         super(color);
-        this.needsWater = needsWater;
     }
 
-    public double getNeedsWater() {
-        return needsWater;
+    @Override
+    public double sufficientLevel() {
+        return sufficientLevel;
     }
 
-    public double getAbsorbtion() {
-        return absorbtion;
+    @Override
+    public double getAbsorption() {
+        return absorption;
     }
 }

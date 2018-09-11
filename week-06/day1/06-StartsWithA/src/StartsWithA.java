@@ -9,6 +9,8 @@ public class StartsWithA {
 
         ArrayList<String> cities = new ArrayList<>(Arrays.asList("ROME", "LONDON", "NAIROBI", "CALIFORNIA", "ZURICH", "NEW DELHI", "AMSTERDAM", "ABU DHABI", "PARIS"));
         cities.stream()
-                .filter(st)
+                .filter(s -> s.startsWith("A"))
+                .filter(s -> s.endsWith("I"))
+                .forEach(System.out::println);
     }
 }

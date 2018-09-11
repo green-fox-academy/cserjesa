@@ -1,0 +1,14 @@
+Kérdések Petinek:
+- "Static csak ritkán kell"
+PSVM static, mindent staticnak akar onnantól
+
+"a Task osztály egy darab taskot reprezentál"
+Akkor miért vannak/lehetnek nevesített példányai?
+- Miért van a pédányoknak neve (nem field name), ha úgyis listát kell vezetnem róluk?
+pl.         Student student6 = new Student("John Doe", "Zold", "COFFEE");
+Ezekre nem tudok rákeresni, csak ha listába teszem őket.
+
+
+"Peter Szel [8:40 PM]
+néhány apróság: arra figyelj, hogy a `Hero` osztályban a `motivation` legyen private"
+Ha privátba teszem, nem tudja a DCHero és MarvelHero örökölni. Van más megoldás?

@@ -5,7 +5,8 @@ import static java.util.stream.Collectors.toMap;
 
 public class Frequency {
 
-    //Write a Stream Expression to find the frequency of characters in a given string!
+    // Write a Stream Expression to find the frequency of characters in a given string!
+    // http://farenda.com/java/java-8-count-frequency-of-chars-in-string/
 
     public static void main(String[] args) {
 

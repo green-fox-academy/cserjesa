@@ -1,0 +1,78 @@
+body {
+    background: #DDD;
+    font-family: Geneva, Tahoma, sans-serif;
+}
+
+.left, .middle, .right {
+    display: inline-block;
+    height: 700px;
+    margin: 4em auto;
+    padding: 3em;
+    border: 0px solid #CCC;
+}
+
+form {
+    /* Just to center the form on the page */
+    height: 500px;
+    width: 400px;
+    border-radius: 4px 0 0 4px;
+    box-shadow: -2px 2px 4px 1px grey;
+    background: #FFF;
+}
+
+h1 {
+    font-weight: lighter;
+}
+
+form div + div {
+    margin-top: 1em;
+}
+
+label {
+    /* To make sure that all labels have the same size and are properly aligned */
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+input, textarea {
+
+    /* To give the same size to all text fields */
+    width: 220px;
+    height: 30px;
+    outline: 0;
+    border: 0;
+    border-bottom: 2px solid #999;
+    padding: 5px;
+}
+
+input:focus, textarea:focus {
+    border-bottom: 2px lightseagreen !important;
+    box-shadow: 0px 3px 0px 0px lightseagreen;
+    outline-offset: 0px !important;
+    border: 0;
+    outline: none;
+}
+
+textarea {
+    /* To properly align multiline text fields with their labels */
+    vertical-align: top;
+
+    /* To give enough room to type some text */
+    height: 5em;
+
+}
+
+p {
+    text-align: right;
+}
+
+button {
+    /* This extra margin represent roughly the same space as the space
+       between the labels and their text fields */
+    background: lightseagreen;
+    color: white;
+    padding: 15px;
+    border-width: 0px;
+    border-radius: 3px;
+    width: 150px;
+}

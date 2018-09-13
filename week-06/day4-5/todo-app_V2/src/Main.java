@@ -15,10 +15,6 @@ public class Main {
         }
 
         if (args[0].equals("-a")) {
-            if (args.length < 2) {
-                System.out.println("Unable to add: no task provided");
-                return;
-            }
             if (args[1].length() < 3) {
                 System.out.println("Task name is too short. Please type a correct name:");
                 return;
@@ -43,6 +39,20 @@ public class Main {
                 return;
             }
             Task.removeTask(Integer.parseInt(args[1]));
+            return;
+        }
+
+        if (args[0].equals("-u")) {
+            if (args.length < 2) {
+                System.out.println("Unable to update: no index provided");
+                return;
+            }
+            if (args[2].length() < 3) {
+                System.out.println("Task name is too short. Please type a correct name:");
+                return;
+            }
+            Task.updateTask(Integer.parseInt(args[1]), (args[2]));
+            Task.writeFile();
             return;
         }
     }

@@ -56,7 +56,6 @@ public class Task {
         } catch (IOException e) {
             System.out.println("Unable to read file: input.txt!");
             return;
-            //System.exit(1);
         }
         for (String line : linesOfInputFile) {
             new Task(line);

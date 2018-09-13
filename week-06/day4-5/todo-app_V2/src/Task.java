@@ -43,18 +43,29 @@ public class Task {
 
 
     private static Duration completionTime(int taskId) {
-        for (Task task : taskInstances) {
+/*        for (Task task : taskInstances) {
             if (task.getId() == taskId && task.completedAt != null) {
                 return Duration.between(task.createdAt, task.completedAt);
             }
         }
         return null;
+        */
+        taskInstances.stream()
+                .filter(a -> a.id == taskId)
+                .filter((Task a) -> a.completedAt != null)
+                .map((Task startInclusive) -> Duration.between(startInclusive.createdAt, startInclusive.completedAt))
+                // .collect(Collectors.);
+                .forEach(System.out::println);
+
+        //           .map(return Duration.between(task.createdAt, task.completedAt))
+        //            .forEach(System.out::println);
+        return Duration.ofDays(5);
     }
 
     private static String durationFormatter(Duration duration) {
         if (duration != null) {
             long seconds = duration.getSeconds();
-            return String.format(", completed in %d days, %2d hours, %2d minutes", seconds / 86400, seconds / 3600, (seconds % 3600) / 60);
+            return String.format(", completed in %d days, %2d hours, %2d minutes", seconds / 86400, (seconds % 86400) / 3600, (seconds % 3600) / 60);
         }
         return "";
     }

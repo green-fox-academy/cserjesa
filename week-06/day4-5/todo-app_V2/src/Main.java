@@ -16,7 +16,7 @@ public class Main {
 
         if (args[0].equals("-a")) {
             if (args[1].length() < 3) {
-                System.out.println("Task name is too short. Please type a correct name:");
+                System.out.println("Task name is too short. Please type a correct name.");
                 return;
             }
             new Task(args[1]);
@@ -43,12 +43,13 @@ public class Main {
         }
 
         if (args[0].equals("-u")) {
-            if (args.length < 2) {
+            if (args.length < 3) {
                 System.out.println("Unable to update: no index provided");
+                menu();
                 return;
             }
             if (args[2].length() < 3) {
-                System.out.println("Task name is too short. Please type a correct name:");
+                System.out.println("Task name is too short. Please type a correct name");
                 return;
             }
             Task.updateTask(Integer.parseInt(args[1]), (args[2]));
@@ -62,10 +63,10 @@ public class Main {
         System.out.println("Command Line Todo application");
         System.out.println("=============================");
         System.out.println("Please choose one of these options:");
-        System.out.println(" -l   Lists all the tasks");
-        System.out.println(" -a   Add a new task");
-        System.out.println(" -r   Remove a task");
-        System.out.println(" -c   Complete a task");
-        System.out.println(" -q   Quit program");
+        System.out.println(" -l                 Lists all the tasks");
+        System.out.println(" -a Description     Add a new task");
+        System.out.println(" -r id              Remove a task");
+        System.out.println(" -c id              Complete a task");
+        System.out.println(" -u id Description  Update task name ");
     }
 }

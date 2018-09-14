@@ -1,6 +1,3 @@
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -8,58 +5,47 @@ import java.util.List;
 
 public class Task {
     private int id;
-    private String name;
+    String name;
     private LocalDateTime completedAt;
     private LocalDateTime createdAt;
-    private static ArrayList<Task> taskInstances = new ArrayList<>();
+    static ArrayList<Task> taskList = new ArrayList<>();
 
     public Task(int id, String name) {
         this.id = id;
         this.name = name;
-        taskInstances.add(this);
+        taskList.add(this);
     }
 
     public Task(String name) {
-        this.id = findNextId(taskInstances);
+        this.id = findNextId(taskList);
         this.name = name;
         this.createdAt = LocalDateTime.now();
-        taskInstances.add(this);
+        taskList.add(this);
     }
 
     static void removeTask(int taskId) {
-        for (int j = 0; j < taskInstances.size(); j++) {
-            if (taskInstances.get(j).id == taskId) {
+        for (int j = 0; j < taskList.size(); j++) {
+            if (taskList.get(j).id == taskId) {
                 try {
-                    taskInstances.remove(taskId);
+                    taskList.remove(taskId);
                 } catch (IndexOutOfBoundsException e) {
                     System.out.println("Unable to remove: id is not found");
+                    return;
                 }
                 j--;
-                writeFile();
+                FileManipulation.writeFile();
                 return;
             }
         }
     }
 
-
     private static Duration completionTime(int taskId) {
-/*        for (Task task : taskInstances) {
-            if (task.getId() == taskId && task.completedAt != null) {
-                return Duration.between(task.createdAt, task.completedAt);
-            }
-        }
-        return null;
-        */
-        taskInstances.stream()
+        return taskList.stream()
                 .filter(a -> a.id == taskId)
-                .filter((Task a) -> a.completedAt != null)
-                .map((Task startInclusive) -> Duration.between(startInclusive.createdAt, startInclusive.completedAt))
-                // .collect(Collectors.);
-                .forEach(System.out::println);
-
-        //           .map(return Duration.between(task.createdAt, task.completedAt))
-        //            .forEach(System.out::println);
-        return Duration.ofDays(5);
+                .filter(b -> b.completedAt != null)
+                .map(c -> Duration.between(c.createdAt, c.completedAt))
+                .findFirst()
+                .orElse(null);
     }
 
     private static String durationFormatter(Duration duration) {
@@ -72,10 +58,10 @@ public class Task {
 
     static void completeTask(int taskId) {
         boolean taskFound = false;
-        for (Task task : taskInstances) {
+   /*     for (Task task : taskList) {
             if (task.getId() == taskId) {
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(500);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -86,12 +72,17 @@ public class Task {
         if (!taskFound) {
             System.out.println("Unable to set complete: id is not found");
         }
+        */
+        taskList.stream()
+                .filter(a -> a.id == taskId)
+                .forEach(a -> a.completedAt = LocalDateTime.now());
+
         getAllTasks();
     }
 
     static void updateTask(int taskId, String name) {
         boolean taskFound = false;
-        for (Task task : taskInstances) {
+        for (Task task : taskList) {
             if (task.getId() == taskId) {
                 task.name = name;
                 taskFound = true;
@@ -102,44 +93,20 @@ public class Task {
 
     static void getAllTasks() {
         String comp;
-        if (taskInstances.size() == 0) {
+        if (taskList.size() == 0) {
             System.out.println("No todos for today! :)");
             return;
         }
-        for (int i = 0; i < taskInstances.size(); i++) {
-            if ((taskInstances.get(i).completedAt != null) && taskInstances.get(i).completedAt.isBefore(LocalDateTime.now())) {
+        for (int i = 0; i < taskList.size(); i++) {
+            if ((taskList.get(i).completedAt != null) && taskList.get(i).completedAt.isBefore(LocalDateTime.now())) {
                 comp = "[x]";
             } else
                 comp = "[ ]";
-            System.out.println(taskInstances.get(i).id + " - " + comp + " " + taskInstances.get(i).name + durationFormatter(completionTime(taskInstances.get(i).id)));
+            System.out.println(taskList.get(i).id + " - " + comp + " " + taskList.get(i).name
+                    + durationFormatter(completionTime(taskList.get(i).id)));
         }
     }
 
-    static void readFile() {
-        List<String> linesOfInputFile = null;
-        try {
-            linesOfInputFile = Files.readAllLines(Paths.get("input.txt"));
-        } catch (IOException e) {
-            System.out.println("Unable to read file: input.txt!");
-            return;
-        }
-        for (String line : linesOfInputFile) {
-            new Task(line);
-        }
-    }
-
-    static void writeFile() {
-        List<String> taskNames = new ArrayList<>();
-        for (Task line : taskInstances) {
-            taskNames.add(line.name);
-        }
-        try {
-            Files.write(Paths.get("input.txt"), taskNames);
-        } catch (
-                IOException e) {
-            System.out.println("Unable to write file: input.txt!");
-        }
-    }
 
     static int findNextId(List<Task> tasks) {
         int largestId = 0;

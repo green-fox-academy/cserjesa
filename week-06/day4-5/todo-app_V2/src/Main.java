@@ -7,7 +7,7 @@ public class Main {
             return;
         }
 
-        Task.readFile();
+        FileManipulation.readFile();
 
         if (args[0].equals("-l")) {
             Task.getAllTasks();
@@ -20,7 +20,7 @@ public class Main {
                 return;
             }
             new Task(args[1]);
-            Task.writeFile();
+            FileManipulation.writeFile();
             return;
         }
 
@@ -30,6 +30,14 @@ public class Main {
                 return;
             }
             Task.completeTask(Integer.parseInt(args[1]));
+            return;
+        }
+       if (args[0].equals("-d")) {
+            if (args.length < 2) {
+                System.out.println("Unable to remove: no index provided");
+                return;
+            }
+            Task.removeTask(Integer.parseInt(args[1]));
             return;
         }
 
@@ -53,7 +61,7 @@ public class Main {
                 return;
             }
             Task.updateTask(Integer.parseInt(args[1]), (args[2]));
-            Task.writeFile();
+            FileManipulation.writeFile();
             return;
         }
     }

@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+
+<a th:each="hello : ${hellolist}">
+    <b th:style="'color:#'+${hello.randomColor} + '; font-size:' + ${hello.fontSize}+'%'" ;
+       th:text="${hello.text}+'! '"></b>
+</a>
+
+</body>
+</html>

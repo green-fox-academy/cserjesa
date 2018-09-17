@@ -1,7 +1,9 @@
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
 public class Task {
     private int id;
@@ -57,38 +59,27 @@ public class Task {
     }
 
     static void completeTask(int taskId) {
-        boolean taskFound = false;
-   /*     for (Task task : taskList) {
-            if (task.getId() == taskId) {
-                try {
-                    Thread.sleep(500);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                task.completedAt = LocalDateTime.now();
-                taskFound = true;
-            }
-        }
-        if (!taskFound) {
+        Optional<Task> toComplete = taskList.stream()
+                .filter(a -> a.id == taskId)
+                .findFirst();
+        if (toComplete.isPresent()) {
+            toComplete.get().completedAt = LocalDateTime.now();
+        } else {
             System.out.println("Unable to set complete: id is not found");
         }
-        */
-        taskList.stream()
-                .filter(a -> a.id == taskId)
-                .forEach(a -> a.completedAt = LocalDateTime.now());
 
         getAllTasks();
     }
 
     static void updateTask(int taskId, String name) {
-        boolean taskFound = false;
-        for (Task task : taskList) {
-            if (task.getId() == taskId) {
-                task.name = name;
-                taskFound = true;
-            }
+        Optional<Task> toComplete = taskList.stream()
+                .filter(a -> a.id == taskId)
+                .findFirst();
+        if (toComplete.isPresent()) {
+            toComplete.get().name = name;
+        } else {
+            System.out.println("Unable to set update: id is not found");
         }
-        if (!taskFound) System.out.println("Unable to set complete: id is not found");
     }
 
     static void getAllTasks() {
@@ -107,16 +98,11 @@ public class Task {
         }
     }
 
-
-    static int findNextId(List<Task> tasks) {
-        int largestId = 0;
-        for (Task task : tasks) {
-            if (task.getId() > largestId) {
-                largestId = task.getId();
-            }
-        }
-
-        return largestId + 1;
+    static Integer findNextId(List<Task> tasks) {
+        return tasks.stream()
+                .map(a -> a.id)
+                .max(Comparator.naturalOrder())
+                .orElse(0) + 1;
     }
 
     private int getId() {

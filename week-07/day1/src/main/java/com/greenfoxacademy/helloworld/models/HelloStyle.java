@@ -1,4 +1,4 @@
-package com.greenfoxacademy.helloworld.controllers;
+package com.greenfoxacademy.helloworld.models;
 
 import java.util.Random;
 
@@ -14,7 +14,7 @@ public class HelloStyle {
     }
 
     private int randomFontSite() {
-        return random.nextInt(240) + 70;
+        return random.nextInt(440) + 90;
     }
 
     Random random = new Random();

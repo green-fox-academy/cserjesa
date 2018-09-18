@@ -1,5 +1,6 @@
 package com.greenfoxacademy.helloworld.controllers;
 
+import com.greenfoxacademy.helloworld.models.HelloStyle;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;

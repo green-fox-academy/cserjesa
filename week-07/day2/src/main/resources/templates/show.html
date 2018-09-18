@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Thymeleaf Exercise #</title>
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<a th:each="account : ${accounts}">
+    <!--    <b th:style="'color:#'+${hello.randomColor} + '; font-size:' + ${hello.fontSize}+'%'" ; -->
+    <p th:text="|${account.name} ${account.animalType} ${#numbers.formatDecimal(account.balance,0,'WHITESPACE',2,'POINT')} ${#strings.capitalize(account.animalType)}|"></p>
+</a>
+
+</body>
+</html>

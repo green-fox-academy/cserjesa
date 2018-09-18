@@ -1,0 +1,28 @@
+body {
+    background-color: black;
+}
+
+table {
+    color: #AFAFAF;
+    background-color: #000000;
+    table-layout: auto;
+    width: 50%;
+    border-collapse: collapse;
+    border-radius: 10px 10px 10px 10px;
+}
+
+th {
+    font-weight: bolder
+}
+
+th, td {
+    padding: 14px 30px;
+    border: 2px solid #A0A0A0;
+    font-size: 100%;
+    text-align: center;
+}
+
+.king {
+    color: yellow;
+    box-shadow: 4px 4px 8px 4px yellow;
+}

@@ -6,10 +6,27 @@
     <meta charset="utf-8"/>
 </head>
 <body>
-<a th:each="account : ${accounts}">
-    <!--    <b th:style="'color:#'+${hello.randomColor} + '; font-size:' + ${hello.fontSize}+'%'" ; -->
-    <p th:text="|${account.name} ${account.animalType} ${#numbers.formatDecimal(account.balance,0,'WHITESPACE',2,'POINT')} ${#strings.capitalize(account.animalType)}|"></p>
-</a>
-
+<table>
+    <tr>
+        <th>Account number</th>
+        <th>Account name</th>
+        <th>Animal type</th>
+        <th>Balance</th>
+        <th>Is king?</th>
+        <th>Is good?</th>
+    </tr>
+    <th:block th:each="account : ${accounts}">
+        <!--        <tr th:case="${account.king} ? 'class = " king
+                "':'class="faking"'">   -->
+        <tr th:class="${account.king} ? king">
+            <td th:text="${accountStat.index}+1"></td>
+            <td th:text="${account.name}"></td>
+            <td th:text="${account.animalType}"></td>
+            <td th:text="|${#numbers.formatDecimal(account.balance,0,'WHITESPACE',2,'POINT')} ${#strings.capitalize(account.animalType)}|"></td>
+            <td th:text="${account.king}"></td>
+            <td th:text="${account.good} ? 'Good One' : 'Bad guy'"></td>
+        </tr>
+    </th:block>
+</table>
 </body>
 </html>

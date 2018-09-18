@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/html">
 <head>
     <title>Thymeleaf Exercise #</title>
     <link rel="stylesheet" th:href="@{/style.css}"/>
@@ -8,6 +8,7 @@
 <body>
 <table>
     <tr>
+        <th>Raise balance?</th>
         <th>Account number</th>
         <th>Account name</th>
         <th>Animal type</th>
@@ -16,9 +17,12 @@
         <th>Is good?</th>
     </tr>
     <th:block th:each="account : ${accounts}">
-        <!--        <tr th:case="${account.king} ? 'class = " king
-                "':'class="faking"'">   -->
         <tr th:class="${account.king} ? king">
+            <td>
+                <form:form th:action="@{/raise/}" th:object="${account}" method="post">
+                    <input type="submit" value="Raise" title="tajtl"/>
+                </form:form>
+            </td>
             <td th:text="${accountStat.index}+1"></td>
             <td th:text="${account.name}"></td>
             <td th:text="${account.animalType}"></td>

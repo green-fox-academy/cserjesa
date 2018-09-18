@@ -3,11 +3,11 @@ package com.greenfoxacademy.bankofsimba.models;
 public class BankAccount {
     String name;
     String animalType;
-    int balance;
-    boolean isKing;
-    boolean isGood;
+    Integer balance;
+    Boolean isKing;
+    Boolean isGood;
 
-    public BankAccount(String name, String animalType, int balance, boolean isKing, boolean isGood) {
+    public BankAccount(String name, String animalType, Integer balance, Boolean isKing, Boolean isGood) {
         this.name = name;
         this.animalType = animalType;
         this.balance = balance;
@@ -33,5 +33,9 @@ public class BankAccount {
 
     public String getAnimalType() {
         return animalType;
+    }
+
+    public void raiser(Integer amount) {
+        this.balance = this.balance + amount;
     }
 }

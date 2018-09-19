@@ -1,3 +1,4 @@
+import java.time.Clock;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ public class Task {
     public Task(String name) {
         this.id = findNextId(taskList);
         this.name = name;
-        this.createdAt = LocalDateTime.now();
+        this.createdAt = LocalDateTime.now(Clock.systemUTC());
         taskList.add(this);
     }
 
@@ -63,7 +64,7 @@ public class Task {
                 .filter(a -> a.id == taskId)
                 .findFirst();
         if (toComplete.isPresent()) {
-            toComplete.get().completedAt = LocalDateTime.now();
+            toComplete.get().completedAt = LocalDateTime.now(Clock.systemUTC());
         } else {
             System.out.println("Unable to set complete: id is not found");
         }
@@ -89,7 +90,7 @@ public class Task {
             return;
         }
         for (int i = 0; i < taskList.size(); i++) {
-            if ((taskList.get(i).completedAt != null) && taskList.get(i).completedAt.isBefore(LocalDateTime.now())) {
+            if ((taskList.get(i).completedAt != null) && taskList.get(i).completedAt.isBefore(LocalDateTime.now(Clock.systemUTC()))) {
                 comp = "[x]";
             } else
                 comp = "[ ]";

@@ -15,7 +15,7 @@ public class SimBankController {
     List<BankAccount> bankAccounts = Arrays.asList(
             new BankAccount("Húgó", "hippo", 1, false, true),
             new BankAccount("Marcipán", "dog", 1000, false, true),
-            new BankAccount("Grabowski", "cat", 400, true, true),
+            new BankAccount("Grabowski", "mouse", 400, true, true),
             new BankAccount("Zordon", "lyon", 500, false, false),
             new BankAccount("Topi", "penguin", 60, false, true),
             new BankAccount("Vuk", "fox", 700, false, true),

@@ -3,12 +3,13 @@ package com.greenfoxacademy.bankofsimba.controllers;
 import com.greenfoxacademy.bankofsimba.models.BankAccount;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class SimBankController {
@@ -28,11 +29,15 @@ public class SimBankController {
         return "show";
     }
 
-    @PostMapping("/raise")
-    public String raise(BankAccount b, Model model) {
-        b.raiser(10);
-        System.out.println(b.getBalance());
-        return "show";
+    @PostMapping("/raise/{urlParamName}")
+    public String raise(@PathVariable String urlParamName, Model model) {
+        Optional<BankAccount> raiseAccount = bankAccounts.stream()
+                .filter(bankAccount -> bankAccount.getName().equals(urlParamName))
+                .findFirst();
+        if (raiseAccount.isPresent()) {
+            raiseAccount.get().raiser(10);
+        }
+        return "redirect:/show";
     }
 
     @RequestMapping("/htmlCeption")

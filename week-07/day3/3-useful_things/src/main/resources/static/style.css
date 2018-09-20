@@ -1,0 +1,33 @@
+body {
+    font-size: 100px;
+    font-weight: bolder;
+}
+
+.red {
+    background-color: red;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.lime {
+    background-color: lime;
+}
+
+.orange {
+    background-color: orange;
+}
+
+.magenta {
+    background-color: magenta;
+}
+
+.validcss {
+    color: green;
+}
+
+.notvalidcss {
+    color: red;
+}
+

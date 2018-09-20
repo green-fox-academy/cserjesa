@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/html">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Thymeleaf Exercise #</title>
     <link rel="stylesheet" th:href="@{/style.css}"/>
@@ -19,9 +19,9 @@
     <th:block th:each="account : ${accounts}">
         <tr th:class="${account.king} ? king">
             <td>
-                <form:form th:action="@{/raise/}" th:object="${account}" method="post">
+                <form th:action="@{'/raise/' + ${account.name}}" method="post">
                     <input type="submit" value="Raise" title="tajtl"/>
-                </form:form>
+                </form>
             </td>
             <td th:text="${accountStat.index}+1"></td>
             <td th:text="${account.name}"></td>

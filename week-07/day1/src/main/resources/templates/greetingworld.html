@@ -6,9 +6,9 @@
 </head>
 <body>
 
-<a th:each="hello : ${hellolist}">
+<p th:each="hello : ${hellolist}">
 <b th:style="'color:#'+${hello.randomColor} + '; font-size:' + ${hello.fontSize}+'%'" th:text="${hello.text}+'! '"></b>
-</a>
+</p>
 
 </body>
 </html>

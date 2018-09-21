@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="layout(content)">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:fragment="layout(content)">
 <head>
     <meta charset="UTF-8">
     <title>Header</title>
 </head>
 <body>
-<li><a th:href="'/?name='+${name}">Information</a></li>
-<li><a th:href="'nutritionStore?name='+${name}">Nutrition Store</a></li>
-<li><a th:href="'trickCenter?name='+${name}">Trick Center</a></li>
-<li><a th:href="'actionHistory?name='+${name}">Action History</a></li>
+<li><a th:href="'/?name='+${fox.name}">Information</a></li>
+<li><a th:href="'nutritionStore?name='+${fox.name}">Nutrition Store</a></li>
+<li><a th:href="'trickCenter?name='+${fox.name}">Trick Center</a></li>
+<li><a th:href="'actionHistory?name='+${fox.name}">Action History</a></li>
 
 <img src="/greenfox.png">
 

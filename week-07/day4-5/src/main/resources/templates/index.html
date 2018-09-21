@@ -6,9 +6,15 @@
     <title>Title</title>
 </head>
 <body>
-<p>This is Mr. Fox.  Currently living pizza and lemonade. He knows 2 tricks.</p>
-<h1>Known tricks:</h1>
-<li>write HTML</li>
-<li>code in Java</li>
+<p th:text="'This is ' + ${fox.name} + '. Currently living on ' + ${fox.food} + ' and ' + ${fox.drink} + '. He knows ' + (${#lists.isEmpty(fox.trickList)}? '0 ' : ${#lists.size(fox.trickList)}) + ' tricks.'"></p>
+
+<div th:if="${#lists.isEmpty(fox.trickList)}">
+    <p>This fox doesn't know any trick</p>
+</div>
+<div th:unless="${#lists.isEmpty(fox.trickList)}">
+    <h1>Known tricks:</h1>
+    <li th:each="trick : ${fox.trickList}" th:text="${trick}"></li>
+</div>
+
 </body>
 </html>

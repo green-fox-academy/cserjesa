@@ -3,8 +3,23 @@
 <link rel="stylesheet" th:href="@{/fox.css}"/>
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Nutrition Store</title>
 </head>
 <body>
+<form action="/" method="post">
+    <div>
+        <label for="foods">foods</label>
+        <input type="text" id="food" name="food" required>
+        <select>
+            <option th:each="food : ${foodlist}"
+                    th:value="${food}"
+                    th:text="${food}">
+            </option>
+        </select>
+    </div>
+    <div>
+        <button type="submit">Change</button>
+    </div>
+</form>
 </body>
 </html>

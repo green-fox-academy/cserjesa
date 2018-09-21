@@ -8,20 +8,27 @@ import java.util.List;
 
 @Service
 public class FoxService {
-    public List<String> foxList = new ArrayList<>();
+    private List<Fox> foxList = new ArrayList<>();
 
 
     public void addFox(String name) {
-        foxList.add(name);
         Fox fox = new Fox(name);
-        return;
+        foxList.add(fox);
     }
 
     public Boolean isNewFox(String name) {
-        for (String foxName : foxList) {
-            if (foxName.equals(name))
+        for (Fox fox : foxList) {
+            if (fox.getName().equals(name))
                 return false;
         }
         return true;
+    }
+
+    public Fox getFoxByName(String name) {
+        for (Fox fox : foxList) {
+            if (fox.getName().equals(name))
+                return fox;
+        }
+        return null;
     }
 }

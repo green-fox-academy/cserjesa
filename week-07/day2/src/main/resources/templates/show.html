@@ -26,7 +26,8 @@
             <td th:text="${accountStat.index}+1"></td>
             <td th:text="${account.name}"></td>
             <td th:text="${account.animalType}"></td>
-            <td th:text="|${#numbers.formatDecimal(account.balance,0,'WHITESPACE',2,'POINT')} ${#strings.capitalize(account.animalType)}|"></td>
+            <td th:text="|${#numbers.formatDecimal(account.balance,0,'WHITESPACE',2,'POINT')}
+                 ${#strings.capitalize(account.animalType)}|"></td>
             <td th:text="${account.king}"></td>
             <td th:text="${account.good} ? 'Good One' : 'Bad guy'"></td>
         </tr>

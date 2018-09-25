@@ -22,14 +22,14 @@ public class TodoController {
 
     @RequestMapping(value = {"/list", "/"})
     public String list(@RequestParam(required = false) Boolean isActive, Model model) {
-        if (isActive == null || !isActive) {
+        if (isActive == null) {
             model.addAttribute("todos", todoRepository.findAll());
         } else if (isActive){
             List<Todo> isNotDone = Streamable.of(todoRepository.findAll()).stream()
                     .filter(a -> !a.isDone())
                     .collect(Collectors.toList());
             model.addAttribute("todos", isNotDone);
-        } else if (isActive) {
+        } else if (!isActive) {
             List<Todo> isNotDone = Streamable.of(todoRepository.findAll()).stream()
                     .filter(a -> a.isDone())
                     .collect(Collectors.toList());

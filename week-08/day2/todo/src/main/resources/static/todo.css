@@ -1,0 +1,23 @@
+body {
+    background-color: white;
+}
+
+table {
+    color: black;
+    background-color: white;
+    table-layout: auto;
+    width: 50%;
+    border-collapse: collapse;
+    border-radius: 10px 10px 10px 10px;
+}
+
+th {
+    font-weight: bolder
+}
+
+th, td {
+    padding: 4px 6px;
+    border: 2px solid #A0A0A0;
+    font-size: 100%;
+    text-align: center;
+}

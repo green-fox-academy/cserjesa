@@ -7,20 +7,36 @@
 </head>
 <body>
 <h1>Todos for today:</h1>
+<a href="/add">Add new todo</a>
+<br>
+<br>
 <table>
     <tr>
+        <th>Edit</th>
         <th>ID</th>
         <th>Action</th>
         <th>Done</th>
         <th>Urgent</th>
+        <th>Delete?</th>
 
     </tr>
     <th:block th:each="todo : ${todos}">
         <tr>
+            <td>
+                <form th:action="@{'/'+${todo.id} +'/edit'}" method="post">
+                    <input type="submit" name="id" value="Edit"/>
+                </form>
+            </td>
             <td th:text="${todo.id}"></td>
             <td th:text="${todo.title}"></td>
             <td th:text="${todo.done}"></td>
             <td th:text="${todo.urgent}"></td>
+            <td>
+                <form th:action="@{'/'+${todo.id} +'/delete'}" method="post">
+                    <input type="submit" name="id" value="Delete"/>
+                </form>
+            </td>
+
         </tr>
     </th:block>
 </table>

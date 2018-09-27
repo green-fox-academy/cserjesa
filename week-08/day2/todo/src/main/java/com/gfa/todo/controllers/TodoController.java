@@ -1,8 +1,8 @@
 package com.gfa.todo.controllers;
 
-import com.gfa.todo.Todo;
 import com.gfa.todo.interfaces.TodoRepository;
-import org.springframework.data.util.Streamable;
+import com.gfa.todo.models.Todo;
+import com.gfa.todo.services.TodoService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,29 +11,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Controller
 public class TodoController {
-    private TodoRepository todoRepository;
+    private TodoService todoService;
 
-    public TodoController(TodoRepository todoRepository) {
-        this.todoRepository = todoRepository;
+    public TodoController(TodoRepository todoRepository, TodoService todoService) {
+        this.todoService = todoService;
     }
-
 
     @RequestMapping(value = {"/list", "/"})
     public String list(@RequestParam(required = false) Boolean isActive, Model model) {
         if (isActive == null) {
-            model.addAttribute("todos", todoRepository.findAll());
+            model.addAttribute("todos", todoService.findAll());
         } else if (isActive) {
-            model.addAttribute("todos", Streamable.of(todoRepository.findAll()).stream()
-                    .filter(a -> !a.isDone())
-                    .collect(Collectors.toList()));
+            model.addAttribute("todos", todoService.findActive());
         } else if (!isActive) {
-            model.addAttribute("todos", Streamable.of(todoRepository.findAll()).stream()
-                    .filter(a -> a.isDone())
-                    .collect(Collectors.toList()));
+            model.addAttribute("todos", todoService.findInactive());
         }
         return "todoslist";
     }
@@ -45,35 +39,40 @@ public class TodoController {
 
     @PostMapping("/add")
     public String addPost(String title, Model model) {
-        todoRepository.save(new Todo(title));
+        todoService.save(title);
         return "redirect:/";
     }
 
     @PostMapping("/{id}/delete")
     public String deletePost(Model model, @PathVariable Long id) {
-        Optional<Todo> todo = todoRepository.findById(id);
+        Optional<Todo> todo = todoService.findById(id);
         if (todo.isPresent()) {
-            todoRepository.delete(todo.get());
+            todoService.delete(todo.get());
         }
         return "redirect:/";
     }
 
     @RequestMapping("/{id}/edit")
     public String edit(Model model, @PathVariable Long id) {
-        model.addAttribute("title", todoRepository.findById(id));
-        return "/{id}/edit";
-    }
-
-    @RequestMapping("/edit")
-    public String edit2(Model model, @PathVariable Long id) {
-        model.addAttribute("title", todoRepository.findById(id));
-        return "/{id}/edit";
+        Optional<Todo> todo = todoService.findById(id);
+        if (todo.isPresent()) {
+            model.addAttribute("todo", todo.get());
+            return "edit";
+        }
+        return "redirect:/404";
     }
 
     @PostMapping("/{id}/edit")
-    public String editPost(Model model, @PathVariable Long id) {
- //       todoRepository.save(new Todo(title));
-        return "/edit";
+    public String editPost(Model model, @PathVariable Long id, Todo todo) {
+        todoService.save(todo);
+        String java = new String();
+
+        return "redirect:/";
     }
 
+    @RequestMapping("/search")
+    public String search(@RequestParam(required = false) String title, Model model) {
+        model.addAttribute("todos", todoService.findTodoByTitle(title));
+        return "todoslist";
+    }
 }

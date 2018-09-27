@@ -1,4 +1,4 @@
-package com.gfa.todo;
+package com.gfa.todo.models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

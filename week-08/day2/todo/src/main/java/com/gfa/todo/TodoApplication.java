@@ -1,6 +1,9 @@
 package com.gfa.todo;
 
 import com.gfa.todo.interfaces.TodoRepository;
+import com.gfa.todo.interfaces.UserRepository;
+import com.gfa.todo.models.Todo;
+import com.gfa.todo.models.User;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

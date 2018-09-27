@@ -1,4 +1,4 @@
-package com.gfa.todo;
+package com.gfa.todo.models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,6 +19,18 @@ public class Todo {
     public Todo() {
     }
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setUrgent(boolean urgent) {
+        this.urgent = urgent;
+    }
+
+    public void setDone(boolean done) {
+        this.done = done;
+    }
+
     public Todo(String title) {
         this.title = title;
         this.urgent = false;
@@ -29,6 +41,10 @@ public class Todo {
         this.title = title;
         this.urgent = urgent;
         this.done = done;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getId() {

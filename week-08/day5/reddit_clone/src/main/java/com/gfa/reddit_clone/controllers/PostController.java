@@ -4,10 +4,7 @@ import com.gfa.reddit_clone.models.Post;
 import com.gfa.reddit_clone.services.PostService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class PostController {
@@ -17,7 +14,7 @@ public class PostController {
         this.postService = postService;
     }
 
-    @RequestMapping(value = {"/posts", "/"})
+    @GetMapping(value = {"/posts", "/"})
     public String list(@RequestParam(required = false) Boolean isActive, Model model) {
         if (isActive == null) {
             model.addAttribute("posts", postService.findAll());
@@ -37,7 +34,7 @@ public class PostController {
         return "redirect:/";
     }
 
-    @RequestMapping("/submit")
+    @GetMapping("/submit")
     public String submit(Model model) {
             return "submit";
     }

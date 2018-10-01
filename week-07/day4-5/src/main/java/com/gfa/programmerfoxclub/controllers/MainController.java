@@ -5,6 +5,7 @@ import com.gfa.programmerfoxclub.services.FoodService;
 import com.gfa.programmerfoxclub.services.FoxService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,7 +20,7 @@ public class MainController {
         this.foodService = foodService;
     }
 
-    @RequestMapping("/")
+    @GetMapping("/")
     public String root(@RequestParam(required = false) String name, Model model) {
         if (notGoodParam(name)) return "redirect:/login";
         Fox fox = foxService.getFoxByName(name);
@@ -27,7 +28,7 @@ public class MainController {
         return "index";
     }
 
-    @RequestMapping("/login")
+    @GetMapping("/login")
     public String login(@RequestParam(required = false) String name, Model model) {
         if (name != null) {
             if (name.equals("null")) {
@@ -49,7 +50,7 @@ public class MainController {
     }
 
 
-    @RequestMapping("/trickCenter")
+    @GetMapping("/trickCenter")
 
     public String trickCenter(@RequestParam(required = false) String name, Model model) {
         if (notGoodParam(name)) return "redirect:/login";
@@ -58,7 +59,7 @@ public class MainController {
         return "index";
     }
 
-    @RequestMapping("/actionHistory")
+    @GetMapping("/actionHistory")
     public String actionHistory(@RequestParam(required = false) String name, Model model) {
         if (notGoodParam(name)) return "redirect:/login";
         Fox fox = foxService.getFoxByName(name);
@@ -66,7 +67,7 @@ public class MainController {
         return "index";
     }
 
-    @RequestMapping("/nutritionStore")
+    @GetMapping("/nutritionStore")
     public String nutrition(@RequestParam(required = false) String name, Model model) {
         if (notGoodParam(name)) return "redirect:/login?name=null";
         Fox fox = foxService.getFoxByName(name);

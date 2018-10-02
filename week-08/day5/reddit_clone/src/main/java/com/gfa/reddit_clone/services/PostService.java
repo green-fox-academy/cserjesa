@@ -13,6 +13,5 @@ public interface PostService {
 
     void downVote(Long id);
 
-
     void save(Post post);
 }

@@ -31,6 +31,7 @@ public class Post {
         this.point = 0;
         this.title = title;
         this.url = url;
+        this.createdAt = LocalDateTime.now();
     }
 
     public long getId() {

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat</title>
+</head>
+<body class="container">
+<h1>Peer to Peer Chat program</h1>
+
+<form action="/update-username" method="post">
+    <div>
+        <label>Your username: </label>
+        <input th:value="${user}" type="text" id="username" name="username">
+        <button class="btn btn-primary" type="submit">Update</button>
+        <p class="text-danger" th:text="${error}"></p>
+    </div>
+</form>
+<form action="/send" method="post">
+    <div>
+        <textarea name="messageText" cols="40" rows="5"></textarea>
+        <button class="btn btn-primary" type="submit">Send</button>
+    </div>
+    <a href="/">Rerfesh</a>
+</form>
+<br>
+<th:block th:each="message : ${messages}">
+   <b> <li th:text="${message.username}"></li></b>
+    <p th:text="${message.text}"></p>
+</th:block>
+
+</body>
+</html>

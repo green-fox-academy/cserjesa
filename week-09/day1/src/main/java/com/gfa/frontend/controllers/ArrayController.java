@@ -7,8 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.util.ArrayList;
 
 @org.springframework.web.bind.annotation.RestController
-public
-class ArrayController {
+public class ArrayController {
 
     @PostMapping("/arrays")
     public ArrayResult arrayResult(@RequestBody(required = false) ArrayInput arrayInput) {

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+<h1>Peer to Peer Chat program</h1>
+<form action="/register" method="post">
+    <div>
+        <label>Choose your name: </label>
+        <input type="text" id="username" name="username">
+        <button class="btn btn-primary" type="submit">Enter</button>
+    </div>
+    <br>
+    <p class="text-danger" th:text="${error}"></p>
+</form>
+</body>
+</html>

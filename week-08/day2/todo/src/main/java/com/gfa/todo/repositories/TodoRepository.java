@@ -1,4 +1,4 @@
-package com.gfa.todo.interfaces;
+package com.gfa.todo.repositories;
 
 import com.gfa.todo.models.Todo;
 import org.springframework.data.repository.CrudRepository;

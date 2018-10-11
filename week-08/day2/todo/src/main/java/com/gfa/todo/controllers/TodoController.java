@@ -1,26 +1,23 @@
 package com.gfa.todo.controllers;
 
-import com.gfa.todo.interfaces.TodoRepository;
 import com.gfa.todo.models.Todo;
 import com.gfa.todo.services.TodoService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @Controller
 public class TodoController {
     private TodoService todoService;
 
-    public TodoController(TodoRepository todoRepository, TodoService todoService) {
+    public TodoController(TodoService todoService) {
         this.todoService = todoService;
     }
 
-    @RequestMapping(value = {"/list", "/"})
+    @GetMapping(value = {"/list", "/"})
     public String list(@RequestParam(required = false) Boolean isActive, Model model) {
         if (isActive == null) {
             model.addAttribute("todos", todoService.findAll());
@@ -32,7 +29,7 @@ public class TodoController {
         return "todoslist";
     }
 
-    @RequestMapping("/add")
+    @GetMapping("/add")
     public String add(Model model) {
         return "add";
     }
@@ -52,7 +49,7 @@ public class TodoController {
         return "redirect:/";
     }
 
-    @RequestMapping("/{id}/edit")
+    @GetMapping("/{id}/edit")
     public String edit(Model model, @PathVariable Long id) {
         Optional<Todo> todo = todoService.findById(id);
         if (todo.isPresent()) {
@@ -65,14 +62,27 @@ public class TodoController {
     @PostMapping("/{id}/edit")
     public String editPost(Model model, @PathVariable Long id, Todo todo) {
         todoService.save(todo);
-        String java = new String();
-
         return "redirect:/";
     }
 
-    @RequestMapping("/search")
+    @GetMapping("/search")
     public String search(@RequestParam(required = false) String title, Model model) {
         model.addAttribute("todos", todoService.findTodoByTitle(title));
         return "todoslist";
+    }
+
+    @GetMapping("/api")
+    @ResponseBody
+    public List<Todo> listDTO(Model model) {
+        todoService.findAll();
+        return (List<Todo>) todoService.findAll();
+    }
+
+    @CrossOrigin("*")
+    @ResponseBody
+    @PostMapping("/api")
+    public String saveDTO(@RequestBody(required = false) Todo todo, Model model) {
+        todoService.save(todo);
+        return "redirect:/";
     }
 }

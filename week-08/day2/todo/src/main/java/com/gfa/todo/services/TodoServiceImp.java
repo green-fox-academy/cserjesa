@@ -1,6 +1,6 @@
 package com.gfa.todo.services;
 
-import com.gfa.todo.interfaces.TodoRepository;
+import com.gfa.todo.repositories.TodoRepository;
 import com.gfa.todo.models.Todo;
 import org.springframework.data.util.Streamable;
 import org.springframework.stereotype.Service;

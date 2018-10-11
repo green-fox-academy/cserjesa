@@ -3,6 +3,7 @@ package com.greenfoxacademy.bankofsimba.controllers;
 import com.greenfoxacademy.bankofsimba.models.BankAccount;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +24,7 @@ public class SimBankController {
             new BankAccount("Simba", "lyon", 2000, false, false)
     );
 
-    @RequestMapping("/show")
+    @GetMapping("/show")
     public String show(Model model) {
         model.addAttribute("accounts", bankAccounts);
         return "show";
@@ -40,7 +41,7 @@ public class SimBankController {
         return "redirect:/show";
     }
 
-    @RequestMapping("/htmlCeption")
+    @GetMapping("/htmlCeption")
     public String wtf(Model model) {
         model.addAttribute("htmlString", "\"This is an <em>HTML</em> text. <b>Enjoy yourself!</b>\"");
         return "htmlCeption";

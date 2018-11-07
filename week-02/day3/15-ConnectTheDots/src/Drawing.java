@@ -14,21 +14,17 @@ public class Drawing {
         graphics.setColor(new Color(0, 200, 0));
         int box[][] = {{10, 10}, {290, 10}, {290, 290}, {10, 290}};
         int points[][] = {{50, 100}, {70, 70}, {80, 90}, {90, 90}, {100, 70}, {120, 100}, {85, 130}, {50, 100}};
-        //for (int i = 0; i < box.length; i++)
-        //for (int j = 0; j<wallArray[0].length; j++){
         drawLines(graphics, box);
         drawLines(graphics, points);
     }
 
-    public static int[][] drawLines(Graphics graphics, int[][] x) {
+    public static void drawLines(Graphics graphics, int[][] x) {
         graphics.drawLine(x[0][0], x[0][1], x[x.length - 1][0], x[x.length - 1][x[x.length - 1].length - 1]);
         for (int i = 0; i < x.length - 1; i++) {
             for (int j = 0; j < x[0].length - 1; j++) {
                 graphics.drawLine(x[i][j], x[i][j + 1], x[i + 1][j], x[i + 1][j + 1]);
             }
         }
-
-        return x;
     }
 
     // Don't touch the code below
